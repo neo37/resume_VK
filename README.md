@@ -3,10 +3,14 @@
 
 . **Install dependencies:**
 Open a terminal and run:
-```bash
-sudo apt update
-sudo apt install python3 python3-pip
-pip3 install pyyaml ​​jinja2
+DON'T forget about venv
+- /Documents$ python -m venv venv
+- /Documents$ source venv/bin/activate
+
+```
+- sudo apt update
+- sudo apt install python3 python3-pip
+- pip3 install pyyaml ​​jinja2
 ```
 
 **Create files:**
