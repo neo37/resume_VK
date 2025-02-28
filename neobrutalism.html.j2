@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cv.name }} – Resume</title>
+    <style>
+        body {
+            font-family: "Arial Black", Arial, sans-serif;
+            background-color: #1C2526;
+            color: #E0E7E9;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #2E3532;
+            border: 6px solid #E0E7E9;
+            box-shadow: 10px 10px 0 #FF6F61;
+        }
+        h1 {
+            font-size: 48px;
+            color: #FF6F61;
+            text-transform: uppercase;
+            margin: 0;
+            border-bottom: 4px solid #E0E7E9;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #A9B7B8;
+            text-transform: uppercase;
+            margin-top: 20px;
+            border-left: 6px solid #FF6F61;
+            padding-left: 10px;
+        }
+        p, li {
+            font-size: 18px;
+            color: #E0E7E9;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .contact-grid div {
+            background-color: #FF6F61;
+            color: #1C2526;
+            padding: 10px;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li:before {
+            content: ">>";
+            color: #FF6F61;
+            margin-right: 10px;
+        }
+        .skills-box {
+            background-color: #E0E7E9;
+            color: #1C2526;
+            padding: 15px;
+            margin-top: 20px;
+            border: 4px solid #FF6F61;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ cv.name }}</h1>
+        <div class="contact-grid">
+            <div>Location: {{ cv.location }}</div>
+            <div>Email: {{ cv.email }}</div>
+            <div>Phone: {{ cv.phone }}</div>
+            {% if cv.social_networks %}
+                <div>
+                    {% for social in cv.social_networks %}
+                        {{ social.network }}: {{ social.username }}{% if not loop.last %}<br>{% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <h2>Summary</h2>
+        <ul>
+            {% for item in cv.sections.summary %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Experience</h2>
+        {% for job in cv.sections.experience %}
+            <h3>{{ job.position }} @ {{ job.company }}</h3>
+            <p>{{ job.start_date }} – {{ job.end_date|default('Present') }}</p>
+            <ul>
+                {% for highlight in job.highlights %}
+                    <li>{{ highlight }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+
+        <div class="skills-box">
+            <h2>{{ cv.sections.skills[0].label }}</h2>
+            <p>{{ cv.sections.skills[0].details }}</p>
+        </div>
+
+        <h2>Objective</h2>
+        <ul>
+            {% for item in cv.sections.objective %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

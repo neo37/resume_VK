@@ -1,0 +1,34 @@
+cv:
+  name: "Kiselev Vasilii"
+  location: "Montenegro"
+  email: "[vasilii@kiselev.lol]"
+  phone: "+382 XXX XXX XXX"
+  social_networks:
+    - network: "LinkedIn"
+      username: "neo3610"    
+    - network: "GitHub"
+      username: "neo37"
+  sections:
+    summary:
+      - "Product Manager & Tech Lead with 14+ years in AR/VR, ERP, and holography. I build shit fast and break barriers with AI and immersive tech."
+    experience:
+      - company: "E-Commers vr ar user tracking ... draft - cause NDA"
+        position: "CEO & Technical Leader"
+        start_date: "2023-09-01"
+        highlights:
+          - "Leading an AR-driven ERP revolution."
+          - "Bossing cross-functional teams to ship big wins."
+      - company: "FSK Lider"
+        position: "Product Manager"
+        start_date: "2021-11-01"
+        end_date: "2024-03-01"
+        highlights:
+          - "Built a task aggregator app—cut approval times by 2.5x."
+          - "Shipped a mobile app with AI chatbot and low-code magic."
+    skills:
+      - label: "Core Skills"
+        details: "Python, C# (Unity3D), AR/VR, Product Badassery"
+    objective:
+      - "To smash boundaries and build next-level AR platforms at DeepAR."
+design:
+  theme: "neobrutalism"
